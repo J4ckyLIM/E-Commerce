@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -37,7 +39,16 @@ class _SplashPageState extends State<SplashPage> {
             })
         .catchError((err) => print(err));
     super.initState();
+    loadData();
   }
+  Future<Timer> loadData() async {
+  return new Timer(Duration(seconds: 5), onDoneLoading());
+}
+
+onDoneLoading() async {
+ // print("onDoneLoading");
+  Navigator.pushReplacementNamed(context, "/login");
+}
 
   @override
   Widget build(BuildContext context) {

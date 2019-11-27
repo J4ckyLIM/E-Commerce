@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: SplashPage(),
+        home: HomePage(),
         routes: <String, WidgetBuilder>{
           '/task': (BuildContext context) => TaskPage(title: 'Task'),
           '/home': (BuildContext context) => HomePage(title: 'Home'),
