@@ -1,5 +1,4 @@
 import 'package:e_commerce/add_product.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './database/category.dart';
 import './database/brand.dart';
@@ -66,7 +65,7 @@ class _AdminState extends State<Admin> {
         content: Form(
           key: _brandFormKey,
           child: TextFormField(
-            controller: categoryController,
+            controller: brandController,
             validator: (value){
               if(value.isEmpty){
                 return "Brand cannot be empty";
@@ -310,36 +309,7 @@ class _AdminState extends State<Admin> {
       break;
     default:
       return Container();
-    };
-    // void _categoryAlert() {
-    //   var alert = AlertDialog(
-    //     content: TextFormField(
-    //       controller: categoryController,
-    //       validator: (value){
-    //         if(value.isEmpty){
-    //           return "Category cannot be empty";
-    //         }
-    //       },
-    //       decoration: InputDecoration(
-    //         hintText: "Add Category",
-    //       ),
-    //     ),
-    //     actions: <Widget>[
-    //       FlatButton.icon(
-    //         onPressed: () {},
-    //         icon: Icon(Icons.add),
-    //         label: Text("Add"),
-    //       ),
-    //       FlatButton.icon(
-    //         onPressed: () {},
-    //         icon: Icon(Icons.close),
-    //         label: Text("Cancel"),
-    //       )
-    //     ],
-    //   );
-    //   showDialog(context: context, builder: (_) => alert);
-    // }
-
+    }
   }
 }
 
