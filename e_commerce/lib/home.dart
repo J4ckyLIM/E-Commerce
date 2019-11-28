@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'components/customCard.dart';
 import 'components/horizontal_listview.dart';
+import 'shopping_cart.dart';
+import 'admin.dart';
 import 'components/products.dart';
 import 'pages/shopping_cart.dart';
 
@@ -116,7 +118,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCart()));
+              },
               child: ListTile(
                 title: Text('My Orders'),
                 leading: Icon(Icons.shopping_basket,color: Colors.orange),
@@ -152,6 +156,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Admin()));
+              },
+              child: ListTile(
+                title: Text('Admin'),
+                leading: Icon(Icons.airplanemode_active),
+              ),
+            ),
+            InkWell(
                   onTap: () {
                     FirebaseAuth.instance
                     .signOut()
@@ -167,29 +180,34 @@ class _HomePageState extends State<HomePage> {
             ],
         ),
       ),
-      body: new ListView(
+      body: Column(
         children: <Widget>[
           //image carousel begins here
           image_carousel,
           //padding widget
-          new Padding(
-            padding: const EdgeInsets.all(8.0),
-            // child: new Text('Categories'),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              alignment:  Alignment.centerLeft,
+              child: Text('Categories'),
+            ),
           ),
           //Horizontal List view begins here
           HorizontalList(),
           //padding widget
-          new Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: new Text('Recent products'),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              alignment:  Alignment.centerLeft,
+              child: Text('Recent products'),
+            ),
           ),
           Container(
             height: 450.0,
             child: Products(),
           ),
           //grid view
-          Container( 
-            height: 320.0,
+          Flexible( 
             child: StreamBuilder<QuerySnapshot>(
               stream: Firestore.instance
                   .collection("users")
