@@ -1,9 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'Task.dart';
 import 'RegistrerPage.dart';
 import 'SplashPage.dart';
 import 'LoginPage.dart';
 import 'home.dart';
+import 'profile.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
           '/home': (BuildContext context) => HomePage(title: 'Home'),
           '/login': (BuildContext context) => LoginPage(),
           '/register': (BuildContext context) => RegisterPage(),
+           '/profile': (BuildContext context) => Profile(),
         });
   }
 }

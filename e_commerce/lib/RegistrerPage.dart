@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/home.dart';
+
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key key}) : super(key: key);
@@ -46,6 +49,9 @@ class _RegisterPageState extends State<RegisterPage> {
       return null;
     }
   }
+  final FirebaseApp app = FirebaseApp(
+    name: 'e-commerce-37e8a',
+    );
 
   @override
   Widget build(BuildContext context) {

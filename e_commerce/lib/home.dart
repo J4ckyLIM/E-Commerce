@@ -28,13 +28,20 @@ class _HomePageState extends State<HomePage> {
     this.getCurrentUser();
     super.initState();
   }
+  String _userId;
+  String _userName;
+  String _userMail;
 
   void getCurrentUser() async {
     currentUser = await FirebaseAuth.instance.currentUser();
   }
-
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
+  FirebaseAuth.instance.currentUser().then((user) {
+      _userId = user.uid;
+      _userName = user.displayName;
+      _userMail = user.email;
+    });
     Widget image_carousel = new Container(
       height: 200.0,
       child: new Carousel(
@@ -77,8 +84,8 @@ class _HomePageState extends State<HomePage> {
         child: new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: Text('Jacky Lim'),
-              accountEmail: Text('jackyLim@gmail.com'),
+             // accountName: Text(_userName).data,
+             //accountEmail: Text("" + _userMail),//Text(_userMail),
               currentAccountPicture: GestureDetector(
                 child: new CircleAvatar(
                   backgroundColor: Colors.grey,
@@ -98,7 +105,11 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                  Navigator.pushReplacementNamed(context, "/profile")
+                  .catchError((err) => print(err));
+
+              },
               child: ListTile(
                 title: Text('My Account'),
                 leading: Icon(Icons.person),
@@ -150,6 +161,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: ListTile(
                     title: Text('Log out'),
+                    leading: Icon(Icons.exit_to_app),
                   ),
               ),
             ],
