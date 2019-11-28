@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'components/customCard.dart';
 import 'components/horizontal_listview.dart';
+import 'shoppingCart.dart';
 import 'components/products.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,7 +71,9 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCart()));
+              })
         ],
       ),
       drawer: new Drawer(
@@ -105,7 +108,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCart()));
+              },
               child: ListTile(
                 title: Text('My Orders'),
                 leading: Icon(Icons.shopping_basket),
