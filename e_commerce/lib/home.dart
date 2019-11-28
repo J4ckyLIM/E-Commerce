@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'components/customCard.dart';
 import 'components/horizontal_listview.dart';
-import 'shoppingCart.dart';
+import 'shopping_cart.dart';
+import 'admin.dart';
 import 'components/products.dart';
 
 class HomePage extends StatefulWidget {
@@ -146,6 +147,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Admin()));
+              },
+              child: ListTile(
+                title: Text('Admin'),
+                leading: Icon(Icons.airplanemode_active),
+              ),
+            ),
+            InkWell(
                   onTap: () {
                     FirebaseAuth.instance
                     .signOut()
@@ -160,25 +170,30 @@ class _HomePageState extends State<HomePage> {
             ],
         ),
       ),
-      body: new ListView(
+      body: Column(
         children: <Widget>[
           //image carousel begins here
           image_carousel,
           //padding widget
-          new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Text('Categories'),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              alignment:  Alignment.centerLeft,
+              child: Text('Categories'),
+            ),
           ),
           //Horizontal List view begins here
           HorizontalList(),
           //padding widget
-          new Padding(
+          Padding(
             padding: const EdgeInsets.all(20.0),
-            child: new Text('Recent products'),
+            child: Container(
+              alignment:  Alignment.centerLeft,
+              child: Text('Recent products'),
+            ),
           ),
           //grid view
-          Container( 
-            height: 320.0,
+          Flexible( 
             child: StreamBuilder<QuerySnapshot>(
               stream: Firestore.instance
                   .collection("users")
