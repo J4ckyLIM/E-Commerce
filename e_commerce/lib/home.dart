@@ -8,7 +8,7 @@ import 'components/horizontal_listview.dart';
 import 'shopping_cart.dart';
 import 'admin.dart';
 import 'components/products.dart';
-import 'pages/shopping_cart.dart';
+import 'shopping_cart.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title, this.uid}) : super(key: key); //update this to include the uid in the constructor

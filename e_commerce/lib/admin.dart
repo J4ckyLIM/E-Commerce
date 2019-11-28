@@ -1,4 +1,4 @@
-import 'package:e_commerce/add_product.dart';
+import 'add_product.dart';
 import 'package:flutter/material.dart';
 import './database/category.dart';
 import './database/brand.dart';
