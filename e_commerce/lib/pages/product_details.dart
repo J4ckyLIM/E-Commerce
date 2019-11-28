@@ -9,12 +9,14 @@ class ProductDetails extends StatefulWidget {
   final product_detail_price;
   final product_detail_picture;
   final product_detail_description;
+  final product_detail_tag;
 
   ProductDetails({
     this.product_detail_name,
     this.product_detail_price,
     this.product_detail_picture,
     this.product_detail_description,
+    this.product_detail_tag,
   });
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
