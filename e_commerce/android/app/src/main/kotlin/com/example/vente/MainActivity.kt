@@ -1,4 +1,4 @@
-package com.example.e_commerce
+package com.example.vente
 
 import android.os.Bundle
 
