@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'components/customCard.dart';
 import 'components/horizontal_listview.dart';
 import 'components/products.dart';
+import 'pages/shopping_cart.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title, this.uid}) : super(key: key); //update this to include the uid in the constructor
@@ -17,14 +18,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController taskTitleInputController;
-  TextEditingController taskDescripInputController;
+
   FirebaseUser currentUser;
 
   @override
   initState() {
-    taskTitleInputController = new TextEditingController();
-    taskDescripInputController = new TextEditingController();
     this.getCurrentUser();
     super.initState();
   }
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
      return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('APPSHOP'),
+        title: Text('ShopOne'),
         actions: <Widget>[
           new IconButton(
               icon: Icon(
@@ -77,7 +75,9 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCart()));
+              })
         ],
       ),
       drawer: new Drawer(
@@ -95,13 +95,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              decoration: new BoxDecoration(color: Colors.red),
+              decoration: new BoxDecoration(color: Colors.orange),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Home Page'),
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.home, color: Colors.orange),
               ),
             ),
             InkWell(
@@ -112,28 +112,28 @@ class _HomePageState extends State<HomePage> {
               },
               child: ListTile(
                 title: Text('My Account'),
-                leading: Icon(Icons.person),
+                leading: Icon(Icons.person, color: Colors.orange),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket),
+                leading: Icon(Icons.shopping_basket,color: Colors.orange),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
-                title: Text('Categoris'),
-                leading: Icon(Icons.dashboard),
+                title: Text('Dashboard'),
+                leading: Icon(Icons.dashboard, color: Colors.orange),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Favorites'),
-                leading: Icon(Icons.favorite),
+                leading: Icon(Icons.favorite, color: Colors.orange),
               ),
             ),
             Divider(),
@@ -174,14 +174,18 @@ class _HomePageState extends State<HomePage> {
           //padding widget
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('Categories'),
+            // child: new Text('Categories'),
           ),
           //Horizontal List view begins here
           HorizontalList(),
           //padding widget
           new Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(5.0),
             child: new Text('Recent products'),
+          ),
+          Container(
+            height: 450.0,
+            child: Products(),
           ),
           //grid view
           Container( 

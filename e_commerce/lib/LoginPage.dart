@@ -46,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Login"),
+          backgroundColor: Colors.orange,
         ),
         body: Container(
             padding: const EdgeInsets.all(20.0),
@@ -55,22 +56,25 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: <Widget>[
                   TextFormField(
+                    style: TextStyle(color: Colors.orange),
                     decoration: InputDecoration(
                         labelText: 'Email*', hintText: "john.doe@gmail.com"),
+
                     controller: emailInputController,
                     keyboardType: TextInputType.emailAddress,
                     validator: emailValidator,
                   ),
                   TextFormField(
+                    
                     decoration: InputDecoration(
-                        labelText: 'Password*', hintText: "********"),
+                        labelText: 'Password*', hintText: "********" ),
                     controller: pwdInputController,
                     obscureText: true,
                     validator: pwdValidator,
                   ),
                   RaisedButton(
                     child: Text("Login"),
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.orange,
                     textColor: Colors.white,
                     onPressed: () {
                       if (_loginFormKey.currentState.validate()) {

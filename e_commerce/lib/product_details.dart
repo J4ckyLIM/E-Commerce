@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-
+import 'home.dart';
+import 'pages/shopping_cart.dart';
+import './components/products.dart';
 class ProductDetails extends StatefulWidget {
   final product_detail_name;
   final product_detail_price;
   final product_detail_picture;
+  final product_detail_tag;
+  final product_detail_description;
 
   ProductDetails({
     this.product_detail_name,
     this.product_detail_price,
-    this.product_detail_picture, product_detail_description,
+    this.product_detail_picture, 
+    this.product_detail_description, 
+    this.product_detail_tag,
   });
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -21,7 +27,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: new AppBar( 
         elevation: 0.1,
         backgroundColor: Colors.orange,
-        title: Text('NTM'),
+        title: Text('Détails'),
         actions: <Widget>[ 
           new IconButton( 
             icon: Icon( 
@@ -35,7 +41,9 @@ class _ProductDetailsState extends State<ProductDetails> {
               Icons.shopping_cart,
               color: Colors.white,
             ),
-            onPressed: (){}
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCart()));
+            }
           )
         ],
       ),
@@ -52,11 +60,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                 color: Colors.white70,
                 child: ListTile( 
                   leading: new Text(widget.product_detail_name,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),),
                   title: new Row(children: <Widget>[
                     Expanded( 
                       child: new Text("${widget.product_detail_price} \€",
-                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 30.0),
                       ),
                     ),
                   ],)
@@ -71,7 +79,15 @@ class _ProductDetailsState extends State<ProductDetails> {
             children: <Widget>[ 
               // POUR UN HABIT CHOIX DE LA SIZE 
             Expanded( 
-              child: MaterialButton(onPressed: (){}, 
+              child: MaterialButton(onPressed: (){
+                showDialog(context: context,
+                builder: (context){ 
+                  return AlertDialog( 
+                    title: Text("Color"),
+                    content: Text("Choose the Quantity"),
+                  );
+                });
+              }, 
               color: Colors.white,
               textColor: Colors.grey,
               elevation: 0.2,
@@ -87,7 +103,15 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             // CHOIX DE LA COULEUR
             Expanded( 
-              child: MaterialButton(onPressed: (){}, 
+              child: MaterialButton(onPressed: (){
+                showDialog(context: context,
+                builder: (context){ 
+                  return AlertDialog( 
+                    title: Text("Quantity"),
+                    content: Text("Choose the Quantity"),
+                  );
+                });
+              }, 
               color: Colors.white,
               textColor: Colors.grey,
               elevation: 0.2,
@@ -114,10 +138,17 @@ class _ProductDetailsState extends State<ProductDetails> {
               color: Colors.orange,
               textColor: Colors.white,
               elevation: 0.2,
-                  child: Text("BUY FDP"),
+                  child: Text("Ajouter au panier"),
               ),
             ),
+            IconButton(icon: Icon(Icons.add_shopping_cart, color: Colors.orange), onPressed: (){}),
+            IconButton(icon: Icon(Icons.favorite_border, color: Colors.orange), onPressed: (){}),
             ],
+          ),
+          Divider(),
+          ListTile( 
+            title: Text("Product details"),
+            subtitle: Text("${widget.product_detail_description}"),
           )
         ],
       ),

@@ -13,8 +13,8 @@ class _ProductsState extends State<Products> {
         "name": "Déguisement",
         "picture": "images/products/blazer1.jpeg",
         "price": 85,
-        "quantity": 0,
-        "tag": "vente flash",
+        "quantity": 0, 
+        "tag": 2,
         "description": "Tout seul, il met son déguisement de tigre. Comme c'est une combinaison, elle est facile à enfiler au-dessus de ses vêtements. La capuche est la tête du félin. Une fois entré dans la peau de son animal ..."
     },
     {

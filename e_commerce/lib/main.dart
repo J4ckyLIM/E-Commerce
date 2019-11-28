@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'Task.dart';
+//import 'Task.dart';
 import 'RegistrerPage.dart';
 import 'LoginPage.dart';
 import 'home.dart';
@@ -14,12 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: HomePage(),
+        home: LoginPage(),
         routes: <String, WidgetBuilder>{
-          '/task': (BuildContext context) => TaskPage(title: 'Task'),
+          //'/task': (BuildContext context) => TaskPage(title: 'Task'),
           '/home': (BuildContext context) => HomePage(title: 'Home'),
           '/login': (BuildContext context) => LoginPage(),
           '/register': (BuildContext context) => RegisterPage(),
