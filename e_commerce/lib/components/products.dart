@@ -11,7 +11,8 @@ class _ProductsState extends State<Products> {
         "name": "Déguisement",
         "picture": "images/products/blazer1.jpeg",
         "price": 85,
-        "quantity": 0, 
+        "quantity": 0,
+        "tag": "vente flash",
         "description": "Tout seul, il met son déguisement de tigre. Comme c'est une combinaison, elle est facile à enfiler au-dessus de ses vêtements. La capuche est la tête du félin. Une fois entré dans la peau de son animal ..."
     },
     {
@@ -211,6 +212,7 @@ class _ProductsState extends State<Products> {
            prod_picture: product_list[index]['picture'],
            prod_price: product_list[index]['price'],
            prod_description: product_list[index]['description'],
+           prod_tag: product_list[index]['tag'],
          );
        }
      );
@@ -222,12 +224,14 @@ class Single_prod extends StatelessWidget {
   final prod_picture;
   final prod_price;
   final prod_description;
+  final prod_tag;
 
   Single_prod( {
     this.prod_name,
     this.prod_picture,
     this.prod_price,
     this.prod_description,
+    this.prod_tag,
   }
   );
 
@@ -248,6 +252,7 @@ class Single_prod extends StatelessWidget {
                   product_detail_picture: prod_picture,
                   product_detail_price: prod_price,
                   product_detail_description: prod_description,
+                  product_detail_tag: prod_tag,
                 ))),
           child: GridTile( 
             footer: Container( 
