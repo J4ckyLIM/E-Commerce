@@ -1,4 +1,34 @@
+
 import 'package:flutter/material.dart';
+//import 'Task.dart';
+import 'RegistrerPage.dart';
+import 'LoginPage.dart';
+import 'home.dart';
+import 'profile.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: LoginPage(),
+        routes: <String, WidgetBuilder>{
+          //'/task': (BuildContext context) => TaskPage(title: 'Task'),
+          '/home': (BuildContext context) => HomePage(title: 'Home'),
+          '/login': (BuildContext context) => LoginPage(),
+          '/register': (BuildContext context) => RegisterPage(),
+           '/profile': (BuildContext context) => Profile(),
+        });
+  }
+}
+/*
 import 'package:carousel_pro/carousel_pro.dart';
 import 'components/horizontal_listview.dart';
 import 'components/products.dart';
@@ -176,4 +206,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
+}*/

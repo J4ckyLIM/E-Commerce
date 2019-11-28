@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vente/pages/product_details.dart';
+import '../product_details.dart';
 class Products_flash extends StatefulWidget {
   @override
   _Products_flashState createState() => _Products_flashState();
