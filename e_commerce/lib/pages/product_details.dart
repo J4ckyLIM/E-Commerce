@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:vente/components/products.dart';
-import 'package:vente/main.dart';
+//import 'package:/components/products.dart';
+import '../home.dart';
 import './shopping_cart.dart';
 
 
@@ -28,7 +28,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         elevation: 0.1,
         backgroundColor: Colors.orange,
         title: InkWell( 
-          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> new MyHomePage()));},
+          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));},
         child: Text('Détails'),
         ),
         actions: <Widget>[ 

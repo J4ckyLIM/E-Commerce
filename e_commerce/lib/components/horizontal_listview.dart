@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-<<<<<<< HEAD
-=======
-import 'package:vente/components/products_flash.dart';
->>>>>>> Hugo
+import 'products_flash.dart';
 
 class HorizontalList extends StatelessWidget {
   @override
@@ -20,10 +17,6 @@ class HorizontalList extends StatelessWidget {
           Category( 
             image_location: 'images/cats/dress.png',
             image_caption: 'Cuisine',
-<<<<<<< HEAD
-=======
-
->>>>>>> Hugo
           ),
           Category( 
             image_location: 'images/cats/jeans.png',
@@ -59,16 +52,16 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(padding: const EdgeInsets.all(2.0),
-<<<<<<< HEAD
+
     child: InkWell(onTap: (){},
-=======
+
     child: InkWell(onTap: (){
 
       //Renvoie a Produit flash a changé !!!!
       
        Navigator.push(context, MaterialPageRoute(builder: (context) => Products_flash()));
     },
->>>>>>> Hugo
+
     child: Container( 
       width: 100.0,
     child: ListTile( 
@@ -81,6 +74,6 @@ class Category extends StatelessWidget {
     ),
     ),
     ),
-    );
+    ));
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce/components/products.dart';
 
 class ProductDetails extends StatefulWidget {
   final product_detail_name;
@@ -9,7 +8,7 @@ class ProductDetails extends StatefulWidget {
   ProductDetails({
     this.product_detail_name,
     this.product_detail_price,
-    this.product_detail_picture,
+    this.product_detail_picture, product_detail_description,
   });
   @override
   _ProductDetailsState createState() => _ProductDetailsState();

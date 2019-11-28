@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vente/components/shopping_cart_products.dart';
+import 'package:vente/pages/shopping_cart_products.dart';
 
 class ShoppingCart extends StatefulWidget {
   @override

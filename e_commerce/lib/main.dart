@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'Task.dart';
 import 'RegistrerPage.dart';
-import 'SplashPage.dart';
 import 'LoginPage.dart';
 import 'home.dart';
 import 'profile.dart';
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         });
   }
 }
-=======
+/*
 import 'package:carousel_pro/carousel_pro.dart';
 import 'components/horizontal_listview.dart';
 import 'components/products.dart';
@@ -207,5 +205,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
->>>>>>> Hugo
+}*/
