@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* import 'home.dart';
+=======
+/*import 'home.dart';
+>>>>>>> Hugo
 import 'package:flutter/material.dart';
 
 class Favorite extends StatelessWidget {
@@ -51,4 +55,8 @@ class Favorite extends StatelessWidget {
     }, 
     );
   }
+<<<<<<< HEAD
 } */
+=======
+}*/
+>>>>>>> Hugo

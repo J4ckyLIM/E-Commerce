@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../product_details.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../database/product.dart';
 
 
 class Products extends StatefulWidget {
@@ -8,6 +10,21 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
+
+  ProductService _productService = ProductService();
+  List<DocumentSnapshot> products = <DocumentSnapshot>[];
+
+  _getProducts() async {
+    List<DocumentSnapshot> data = await _productService.getProducts();
+    setState(() {
+      products = data;
+    });
+  }
+
+  @override
+  void initState(){
+    _getProducts();
+  }
   var product_list = [
     {
         "name": "Déguisement",
@@ -239,7 +256,7 @@ class Single_prod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    
     return Card(
       child: Hero(
         tag: Text("hero 1"), 

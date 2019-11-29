@@ -23,6 +23,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   FirebaseUser currentUser;
+  TextEditingController _searchController = TextEditingController();
 
   @override
   initState() {
@@ -66,10 +67,28 @@ class _HomePageState extends State<HomePage> {
      return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('ShopOne'),
+        title: Material(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.grey[100],
+          elevation: 0.0,
+          child: TextFormField(
+            controller: _searchController,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(10.0),
+                hintText: "Search...",
+                border: InputBorder.none),
+            validator: (value) {
+              if (value.isEmpty) {
+                return "The search field cannot be empty";
+              }
+              return null;
+            },
+          ),
+        ),
         actions: <Widget>[
           new IconButton(
               icon: Icon(
+<<<<<<< HEAD
                 Icons.search,
                 color: Colors.white,
               ),
@@ -78,6 +97,8 @@ class _HomePageState extends State<HomePage> {
               }),
           new IconButton(
               icon: Icon(
+=======
+>>>>>>> Hugo
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
@@ -89,7 +110,7 @@ class _HomePageState extends State<HomePage> {
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
-            new UserAccountsDrawerHeader(
+            UserAccountsDrawerHeader(
              // accountName: Text(_userName).data,
              //accountEmail: Text("" + _userMail),//Text(_userMail),
               currentAccountPicture: GestureDetector(
@@ -238,6 +259,7 @@ class _HomePageState extends State<HomePage> {
                 }
               },
             )),
+            //Flexible(child: Products()),
         ],
       ),
     );
