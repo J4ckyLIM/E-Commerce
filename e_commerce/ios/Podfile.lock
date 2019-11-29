@@ -358,11 +358,7 @@ SPEC CHECKSUMS:
   cloud_firestore: c6e28e89a1bf98faab7fc8fdec20dc6020799cd1
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   firebase_auth: d99b993c1405096e66c58211b1cd956c23eed1c5
-<<<<<<< HEAD
   firebase_core: 15d27cd74b2e40f8c29540707c0486bb561a92e8
-=======
-  firebase_core: 971ffa0fb29e49b80a2ad295eb1ad1cdbd680ec4
->>>>>>> Panier
   firebase_database: 9fb71952703b719484bc1de5347522a11b6ccc38
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f

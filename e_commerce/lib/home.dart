@@ -9,6 +9,7 @@ import 'shopping_cart.dart';
 import 'admin.dart';
 import 'components/products.dart';
 import 'shopping_cart.dart';
+import 'package:dio/dio.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title, this.uid}) : super(key: key); //update this to include the uid in the constructor
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> {
       _userName = user.displayName;
       _userMail = user.email;
     });
+    
     Widget image_carousel = new Container(
       height: 200.0,
       child: new Carousel(
@@ -71,7 +73,9 @@ class _HomePageState extends State<HomePage> {
                 Icons.search,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                _getNames();
+              }),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart,
