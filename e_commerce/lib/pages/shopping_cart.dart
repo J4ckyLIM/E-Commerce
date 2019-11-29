@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vente/pages/shopping_cart_products.dart';
+import 'package:vente/components/shopping_cart_products.dart';
+
+import 'payment.dart';
 
 class ShoppingCart extends StatefulWidget {
   @override
@@ -37,7 +39,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
             ),
             Expanded(
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage()));
+                },
                 child: Text("Checkout", style: TextStyle (color: Colors.white)),
                 color: Colors.red,
               ),
