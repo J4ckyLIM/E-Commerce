@@ -232,7 +232,6 @@ class _AddProductState extends State<AddProduct> {
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TypeAheadField(
@@ -286,7 +285,6 @@ class _AddProductState extends State<AddProduct> {
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TypeAheadField(
