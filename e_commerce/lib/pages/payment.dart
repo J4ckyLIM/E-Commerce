@@ -13,7 +13,8 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("jvkhfbkb"),
+        title: Text("Checkout"),
+        backgroundColor: Colors.orange,
         centerTitle: true,
       ),
       body: Center(
@@ -24,7 +25,7 @@ class _PaymentPageState extends State<PaymentPage> {
               child: InkWell(
                 onTap: () => _pay(context),
                 child: Card(
-                  color: Colors.orangeAccent,
+                  color: Colors.orange,
                   elevation: 15,
                   child: Container(
                     height: 250,
