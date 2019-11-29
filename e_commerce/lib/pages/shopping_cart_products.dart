@@ -90,7 +90,7 @@ class Single_cart_product extends StatelessWidget {
             Container(
               alignment: Alignment.bottomLeft,
               child: Text(
-                "\$${cart_prod_price}", 
+                ("${cart_prod_price * cart_prod_quantity}"), 
                 style: TextStyle(
                   color: Colors.red, 
                   fontSize: 17.0, 

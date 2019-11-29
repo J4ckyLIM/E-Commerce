@@ -93,7 +93,23 @@ class _AddProductState extends State<AddProduct> {
       setState(() {
         isLoading = true;
       });
-      if(_image != null){
+      _productService.uploadProduct(
+            productNameController.text,
+            productDescriptionController.text,
+            _currentCategory,
+            selectedSizes,
+            double.parse(priceController.text),
+            int.parse(quantityController.text),
+      );
+      _formKey.currentState.reset();
+            setState(() {
+              isLoading = false;
+      });
+      Fluttertoast.showToast(msg: "Your product has been added to the shop");
+      Navigator.pop(context);
+    };
+  }
+      /*if(_image != null){
         String imageUrl;
         final FirebaseStorage storage = FirebaseStorage.instance;
         final String picture = "${DateTime.now().millisecondsSinceEpoch.toString()}.jpg";
@@ -102,31 +118,15 @@ class _AddProductState extends State<AddProduct> {
         StorageTaskSnapshot theSnapshot = await task.onComplete.then((snapshot) => snapshot);
         task.onComplete.then((theSnaphot) async {
           imageUrl = await theSnapshot.ref.getDownloadURL();
-          List<String> imageList = [imageUrl];
-          _productService.uploadProduct({
-            "productName": productNameController.text,
-            "description": productDescriptionController,
-            "price": double.parse(priceController.text),
-            "sizes": selectedSizes,
-            "images": imageList,
-            "quantity": int.parse(quantityController.text),
-            "category":_currentCategory
-          });
-            _formKey.currentState.reset();
-            setState(() {
-              isLoading = false;
-            });
-            Fluttertoast.showToast(msg: "Your product has been added to the shop");
-            Navigator.pop(context);
-        });
-      } else {
+          List<String> imageList = [imageUrl];*/
+            
+      
+        /*else {
         setState(() {
           isLoading = false;
         });
         Fluttertoast.showToast(msg: "An image must be provided");
-      }
-    }
-  }
+      }*/
 
   Widget _displayChild() {
     if(_image == null) {
@@ -160,48 +160,6 @@ class _AddProductState extends State<AddProduct> {
         child: SingleChildScrollView(
           child: isLoading ? CircularProgressIndicator() : Column(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: OutlineButton(
-                        borderSide: BorderSide(color: grey.withOpacity(0.5), width: 2.5),
-                        onPressed: () {
-                          _selectImage(ImagePicker.pickImage(source: ImageSource.camera), 1);
-                        },
-                        child: _displayChild()
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: OutlineButton(
-                        borderSide: BorderSide(color: grey.withOpacity(0.5), width: 2.5),
-                        onPressed: () {},
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(14.0, 26.0, 14.0, 26.0),
-                          child: Icon(Icons.add, color: grey),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: OutlineButton(
-                        borderSide: BorderSide(color: grey.withOpacity(0.5), width: 2.5),
-                        onPressed: () {},
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(14.0, 26.0, 14.0, 26.0),
-                          child: Icon(Icons.add, color: grey),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               Padding(
                 padding: EdgeInsets.all(12.0),
                 child: TextFormField(
